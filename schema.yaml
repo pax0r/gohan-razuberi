@@ -1,0 +1,59 @@
+extensions:
+- url: file://gpio.js
+  id: example_js
+  path: v1.0/gpio_output.*
+policies: []
+schemas:
+- description: Raspberry PI Output GPIO pin
+  id: gpio_output
+  plural: gpio_outputs
+  prefix: /v1.0
+  schema:
+    properties:
+      id:
+        description: ID
+        permission:
+        - create
+        title: ID
+        type: string
+        unique: false
+      name:
+        description: Name for the GPIO resource
+        permission:
+        - create
+        - update
+        title: Name
+        type: string
+        unique: false
+      gpio_pin:
+        description: GPIO Pin number
+        title: GPIO Pin
+        permission:
+        - create
+        type: number
+        unique: true
+      is_up:
+        title: UP
+        description: Is pin UP?
+        permission:
+        - create
+        - update
+        type: boolean
+        default: false
+      tenant_id:
+        description: Tenant ID
+        permission:
+        - create
+        title: Tenant
+        type: string
+        unique: false
+    propertiesOrder:
+    - id
+    - name
+    - gpio_pin
+    - is_up
+    required:
+    - gpio_pin
+    type: object
+  title: GPIO Pin
+  singular: gpio
