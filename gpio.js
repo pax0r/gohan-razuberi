@@ -32,7 +32,7 @@ gohan_register_handler("post_create_in_transaction", gpio_handler);
 gohan_register_handler("post_update_in_transaction", gpio_handler);
 gohan_register_handler("pre_delete_in_transaction", function(context) {
     var resource = context.resource;
-    var exampleModule = require("exampleapp");
+    var exampleModule = require("razuberi");
 
     exampleModule.SetLow(resource.gpio_pin);
 });
